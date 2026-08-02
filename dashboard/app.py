@@ -2,6 +2,10 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import os
+from pathlib import Path
+
+css = Path("dashboard/style.css").read_text()
+st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 
 # =====================================================
 # PAGE CONFIG
@@ -32,15 +36,58 @@ df = pd.read_csv(csv_path)
 # TITLE
 # =====================================================
 
-st.title("📊 Customer Churn Analytics Platform")
+st.title("🏠 Customer Churn Analytics Platform")
 
-st.markdown(
-    """
-    Analyze customer churn behavior using
-    machine learning, feature importance,
-    and interactive visualizations.
-    """
-)
+st.markdown("""
+<div style="
+background:linear-gradient(135deg,#2563EB,#1E40AF);
+padding:40px;
+border-radius:20px;
+color:white;
+margin-bottom:30px;
+box-shadow:0 12px 30px rgba(37,99,235,.35);
+">
+
+<h1 style="margin:0;font-size:44px;">
+🚀 Customer Churn Analytics Platform
+</h1>
+
+<p style="font-size:22px;margin-top:12px;">
+Enterprise AI-Powered Customer Analytics Dashboard
+</p>
+
+<p style="font-size:17px;color:#E2E8F0;margin-top:18px;">
+Analyze customer behavior, predict churn, monitor business KPIs, evaluate machine learning models, and understand predictions with Explainable AI.
+</p>
+
+<hr style="border:1px solid rgba(255,255,255,.25);">
+
+<div style="display:flex;justify-content:space-between;flex-wrap:wrap;margin-top:20px;">
+
+<div>
+<h4>📊 Dashboard</h4>
+Executive Analytics
+</div>
+
+<div>
+<h4>🤖 AI Models</h4>
+Logistic Regression • Random Forest • XGBoost
+</div>
+
+<div>
+<h4>🧠 Explainable AI</h4>
+SHAP Feature Importance
+</div>
+
+<div>
+<h4>💻 Tech Stack</h4>
+Python • SQL • Streamlit • Plotly
+</div>
+
+</div>
+
+</div>
+""", unsafe_allow_html=True)
 
 # =====================================================
 # SIDEBAR
